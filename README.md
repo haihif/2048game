@@ -19,7 +19,7 @@ Open a console or terminal emulator on your computer and navigate to the directo
 
 Compile the source code using your C++ compiler. For example, if you are using GCC, you can use the following command to compile the code:
 
-g++ -std=c++11 -o 2048game 2048game.cpp
+g++ -std=c++11 -o 2048game 2048Game.cpp
 
 This will create an executable file named 2048game in the same directory.
 
