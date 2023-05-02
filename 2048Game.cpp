@@ -1,5 +1,11 @@
-//2048 GAME
+/*
+	2048 GAME 
+	
+	Wirten by Nguyen Huy Hai
+	
+	https://github.com/haihif
 
+*/
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
@@ -49,21 +55,21 @@ void draw(){
 		printf("\n");
 	}
 	printf("YOUR SCORE:     %d\n\n",score);
-	printf("*Use up/down/right/left button to play!\n");	
+	printf("*Use Up/ Down/ Right/ Left button to play!\n");	
 	printf("*Press E to exit!\n");
 	
 }
 
 void mainMenu(){
 	system("cls"); 
-	printf(" 000000000000000000000000000000000000\n");
+	printf("00000000000000000000000000000000000000\n");
 	printf("00                                  00\n");
 	printf("00          1. CONTINUE             00\n");
 	printf("00          2. NEW GAME             00\n");
-	printf("00          3. GIUDE                00\n");
+	printf("00          3. GUIDE                00\n");
 	printf("00          4. ABOUT US             00\n");
 	printf("00                                  00\n");
-	printf(" 000000000000000000000000000000000000\n");
+	printf("00000000000000000000000000000000000000\n");
 }
 
 void readBoard(){
@@ -393,6 +399,24 @@ void loopGame(){
 				case '3':
 					exit(0);
 					break;
+				default: 
+					system("cls");
+					printf("\n");
+					printf("        INVALID COMMAND !!!");
+					printf("\n\n\n\n");
+					printf("       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
+					switch(keyPress()) {
+						case '1':
+							mainMenu();
+							break;
+						case '2':
+							init();
+							loopGame();
+							break;
+						case '3':
+							exit(0);
+							break;
+					}	
 			}	
 	}
 }
@@ -427,6 +451,24 @@ void start(){
 				case '3':
 					exit(0);
 					break;
+				default: 
+					system("cls");
+					printf("\n");
+					printf("        INVALID COMMAND !!!");
+					printf("\n\n\n\n");
+					printf("       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
+					switch(keyPress()) {
+						case '1':
+							mainMenu();
+							break;
+						case '2':
+							init();
+							loopGame();
+							break;
+						case '3':
+							exit(0);
+							break;
+					}	
 			}
 		case '4':
 			printf("\n");
@@ -444,6 +486,24 @@ void start(){
 				case '3':
 					exit(0);
 					break;
+				default: 
+					system("cls");
+					printf("\n");
+					printf("        INVALID COMMAND !!!");
+					printf("\n\n\n\n");
+					printf("       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
+					switch(keyPress()) {
+						case '1':
+							mainMenu();
+							break;
+						case '2':
+							init();
+							loopGame();
+							break;
+						case '3':
+							exit(0);
+							break;
+					}	
 			}
 			break;
 		case 'e':
@@ -451,6 +511,7 @@ void start(){
 			break;
 		
 		default: 
+			system("cls");
 			printf("\n");
 			printf("        INVALID COMMAND !!!");
 			printf("\n\n\n\n");
