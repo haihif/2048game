@@ -55,35 +55,20 @@ void draw(){
 }
 
 void mainMenu(){
+	system("cls"); 
 	printf(" 000000000000000000000000000000000000\n");
 	printf("00                                  00\n");
 	printf("00          1. CONTINUE             00\n");
 	printf("00          2. NEW GAME             00\n");
 	printf("00          3. GIUDE                00\n");
 	printf("00          4. ABOUT US             00\n");
-	printf("00          5. RANK                 00\n");
 	printf("00                                  00\n");
 	printf(" 000000000000000000000000000000000000\n");
 }
 
-void updateRank(){
-	FILE *rankChart;
-	rankChart = fopen("C:\\Users\\Administrator\\Desktop\\2048Game\\rankChart.txt","w+");
-	FILE *scoreArray;
-	scoreArray = fopen("C:\\Users\\Administrator\\Desktop\\2048Game\\scoreArray.txt","w+");
-	FILE *namePlayer;
-	namePlayer = fopen("C:\\Users\\Administrator\\Desktop\\2048Game\\namePlayer.txt","w+");
-	 
-	
-	
-	fclose(rankChart);
-	fclose(scoreArray);
-	fclose(namePlayer);
-}
-
 void readBoard(){
 	FILE *boardGame;
-	boardGame = fopen("C:\\Users\\Administrator\\Desktop\\2048Game\\boardGame.txt","r");
+	boardGame = fopen("boardGame.txt","r");
 	
 	for(int i=1; i<=4; i++){
 		for(int j=1; j<=4; j++){
@@ -96,7 +81,7 @@ void readBoard(){
 
 void saveGame(){
 	FILE *boardGame;
-	boardGame = fopen("C:\\Users\\Administrator\\Desktop\\2048Game\\boardGame.txt","w");
+	boardGame = fopen("boardGame.txt","w");
 	
 	for(int i=1; i<=4; i++){
 		for(int j=1; j<=4; j++){
@@ -393,14 +378,22 @@ void loopGame(){
 		printf("0   00  0   0  0 0 0 0  000000      00    00   0   0   000000   0 000 \n");
 		printf("0    0  00000  0  0  0  0            0    0     000    0        0    0 \n");
 		printf(" 00000  0   0  0     0   0000         0000       0      0000    0     0 \n");
-	}
-	else {
-		//clearBoard(); 
-		printf("0     0   000   0000   00000   0000    00000    0     0\n");
-		printf("0     0    0   0    0    0    0    0   0    0    0   0\n");
-		printf(" 0   0     0   0         0   00    00  0 000      000\n");
-		printf("  000      0   0    0    0    0    0   0    0      0\n");
-		printf("   0      000   0000     0     0000    0     0     0\n");
+		
+		getchar();
+		
+		printf("\n\n       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
+			switch(keyPress()) {
+				case '1':
+					mainMenu();
+					break;
+				case '2':
+					init();
+					loopGame();
+					break;
+				case '3':
+					exit(0);
+					break;
+			}	
 	}
 }
 
@@ -420,7 +413,7 @@ void start(){
 			system("cls");
 			printf("\n");
 			printf("\n     *Use up/down/right/left button to play!\n");	
-			printf("\n     *Press E to exit!\n");
+			printf("\n\n");
 			printf("\n\n\n\n");
 			printf("       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
 			switch(keyPress()) {
@@ -453,9 +446,13 @@ void start(){
 					break;
 			}
 			break;
-		case '5':
+		case 'e':
+			exit(0);
+			break;
+		
+		default: 
 			printf("\n");
-			printf("        NOTHING!!!");
+			printf("        INVALID COMMAND !!!");
 			printf("\n\n\n\n");
 			printf("       (1) BACK      (2) NEW GAME     (E) EXIT GAME");
 			switch(keyPress()) {
@@ -469,12 +466,7 @@ void start(){
 				case '3':
 					exit(0);
 					break;
-			}
-			break;
-		case 'e':
-			exit(0);
-			break;
-			
+			}	
 	}
 	
 }
@@ -489,12 +481,13 @@ int main() {
 }
 
 
-//Phím Enter : 13
-//Phím ESC: 27
-//Phím Tab: 9
-//Mui tên lên: 72
-//Mui tên xuong: 80
-//Mui tên sang trai: 75
-//Mui tên sang phai: 77
-//Phím cách: 32
-
+/*
+*Enter : 13
+*ESC: 27
+*Tab: 9
+*Up: 72
+*Down: 80
+*Left: 75
+*Right: 77
+*Space: 32
+*/
